@@ -1,0 +1,79 @@
+% 请按自己的论文排版需求，加载需要的宏包
+
+% TikZ绘图宏包
+
+\makeatletter
+\let\theoremstyle\relax
+\let\newtheoremstyle\relax
+\let\proof\relax
+\let\endproof\relax
+\makeatother
+
+\usepackage{amsthm}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+% 卧图卧表宏包
+\usepackage{lscape}
+% 引号宏包
+\usepackage{csquotes}
+% 子图表宏包
+\usepackage{subcaption}
+% 双语标题宏包
+\usepackage{bicaption}
+% 合并表格行宏包
+\usepackage{multirow}
+% csv数据处理宏包
+\usepackage{datatool}
+% 单位符号宏包
+\usepackage{siunitx}
+% 跨页长表格宏包
+\usepackage{longtable}
+% 三线表宏包
+\usepackage{booktabs}
+% 新一代表格排版宏包
+\usepackage{tabularray}
+% 表格注释说明宏包
+\usepackage{threeparttable}
+% 带边框小页环境
+\usepackage{boxedminipage2e}
+
+\usepackage{empheq}
+
+\usepackage{csvsimple}
+
+\usepackage{caption}
+
+\usepackage{tabularx}
+
+\usepackage{float}
+
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+
+\makeatletter
+\newenvironment{breakablealgorithm}
+{%\begin{breakablealgorithm}
+	\begin{center}
+		\refstepcounter{algorithm}% New algorithm
+		\hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+		\renewcommand{\caption}[2][\relax]{% Make a new \caption
+			{\raggedright\textbf{\ALG 算法~\thealgorithm} ##2\par}%
+			\ifx\relax##1\relax % #1 is \relax
+			\addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+			\else % #1 is not \relax
+			\addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+			\fi
+			\kern2pt\hrule\kern2pt
+		}
+	}{%\end{breakablealgorithm}
+		\kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+	\end{center}
+}\makeatother
+\usepackage[noend]{algpseudocode}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main.tex"
+%%% End:

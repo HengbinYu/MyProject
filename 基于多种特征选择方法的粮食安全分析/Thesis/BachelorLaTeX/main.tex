@@ -1,0 +1,97 @@
+% 文档类(模板)
+\documentclass[%
+  type = bachelor,  % 本科论文(设计)
+  % oneside,        % 单面模式
+  twoside,          % 双面模式(openany)
+]{nwafuthesis}
+% 导言区
+
+% 将需要载入的宏包统一在settings/package.tex中进行管理
+\input{settings/packages.tex}
+% 将必要的设置统一在settings/format.tex中进行管理
+\input{settings/format.tex}
+
+% 编写测试文档用到的两个宏包，若不需要，可能删除
+% 中文乱数假文宏包
+\usepackage{zhlipsum}
+% 最小工作示例(MWE)宏包，主要用于插图示例
+\usepackage{mwe}
+
+% 排版设置
+\nwafuset{
+% 论文格式
+  style = {
+    % font          = times*,           % 选择英文字体(需要安装有该字体，建议自动配置)
+    % cjk-font      = adobe,            % 选择中文字体(需要安装有该字体，建议自动配置)
+    hyperlink     = color,            % 超链接颜色
+    % withchapter = false,            % 章标题是否为章模式(仅本科生需要)
+    bib-resource  = {bib/sample.bib}, % 参考文献数据源文件名，注意需要完整路径及后缀名
+  },
+% 信息录入
+  info = {
+    grade = {2023}, % 毕业年份(届)
+    enroll = {2019}, % 入学年份(级)
+    class-id = {1}, % 班级号
+    btype = {paper}, % 本科类型(论文/设计)
+    % btype = {design},
+    title = { 基于粗糙集方法的粮食安全分析 }, % 中文题目
+    title* = { Food Security Analysis Based on Rough Set Method }, % 英文题目
+    department = { 理学院 }, % 学院名称
+    major = {信息与计算科学}, % 专业
+    author = { 于恒彬 }, % 作者中文名称
+    supervisor = { 杨斌 }, % 指导教师
+    cosupervisor = {无}, % 协助指导教师
+    date = {\datezh}, % 论文提交时间
+    student-id = {2019013914}, % 学号
+  },
+}
+% 录入摘要
+\nwafuset{
+  abstract = {
+    abstractfile  = { contents/chap00-abs-zh.tex }, % 中文摘要文件名称，注意需要有.tex后缀名
+    abstractfile* = { contents/chap00-abs-en.tex }, % 英文摘要文件名称，注意需要有.tex后缀名
+    keywords      = {粮食安全,玉米生产,粗糙集,特征选择,产量预测}, % 中文关键字列表，注意用英文逗号分隔。
+    keywords*     = {food security,maize production,rough set,feature selection,yield prediction}, % 英文关键字列表，注意用英文逗号分隔
+  },
+}
+% 正文区(有且只能有一个)
+\begin{document}
+% 这个命令用来关闭版心底部强制对齐，
+% 可以减少不必要的 underfull \vbox 提示，但会影响排版效果
+% \raggedbottom
+
+% 由于论文模板中已设计了自动排版封面、摘要、目录等功能，
+% 因此，无需手动排版。
+
+% 主体部分是论文的核心
+\mainmatter
+
+% 建议采用多文件编译的方式编写论文，
+% 比较好的做法是把每一章放进一个单独的 tex 文件里，
+% 并在这里用 \include 导入，如：
+\include{contents/chap01}
+\include{contents/chap0105}
+\include{contents/chap02}
+\include{contents/chap03}
+\include{contents/chap04}
+\include{contents/chap05}
+\include{contents/chap06}
+%
+% 打印参考文献列表
+\bibmatter*
+\printbibliography
+
+% 排版附录，可选
+\appendix
+\input{contents/chap08-app}
+% \input{contents/chap07-app2}
+
+% 排版致谢
+\backmatter
+% 致谢
+\input{contents/chap08-ack}
+
+% % 个人简历， 本科生可选
+% \input{contents/resume}
+
+\end{document}
