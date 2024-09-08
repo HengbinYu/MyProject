@@ -1,4 +1,4 @@
-mport pandas as pd
+import pandas as pd
 
 City=['Beijing','Changsha','Chengdu','Chongqing','Guangzhou','Hangzhou','Nanjing','Qingdao','Sanya','Shanghai','Shenzhen','Tianjin','Wuhan','Xiamen','Xian','Suzhou','Kunming','Dali']
 
